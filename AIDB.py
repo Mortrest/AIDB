@@ -1,4 +1,4 @@
-#%%
+
 import duckdb 
 import pandas as pd
 from DataModel import DataModel
@@ -208,23 +208,4 @@ class AIDB:
             return output
 
 
-
-#%%
-mappings = {
-    'ml1' : {
-        'table' : 'cars',
-        'function' : generate_cols_ml1,
-        'input' : [{'table' : 'base_table', 'cols' : ['id']}],
-        'output' : ['x', 'y', 'conf']
-    }
-}
-dm = DataModel(data_path="data.csv", images_path="data/images", mappings=mappings)
-
-# %%
-db = AIDB(dm)
-# %%
-output = db.execute_query("SELECT AVG(x) FROM cars")
-# output
-
-# %%
 
